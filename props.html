@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Props and State Assignment</title>
+</head>
+<body>
+  <div id = "app"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+     <script type="text/babel">
+     	
+     	class Header extends React.Component{
+     	  constructor(props){
+           super(props);
+           this.state = {
+             alphabet: "A"
+           }
+         }
+     	   render(){
+    	    return(
+    	      <div>
+     	      	<h1>I am logo of Apple!!</h1>
+     	      	<img src={this.props.image} alt="Apple logo"/>
+     	      	<h2>The alphabet it starts with: {this.state.alphabet}</h2>
+     	      	<h2>{this.props.lable}</h2>
+     	      </div>
+     	    );
+     	   }
+     	}
+
+     	const info = {
+     	    image: 'http://lofrev.net/wp-content/photos/2014/09/Red-Apple-logo.jpg'
+     	}
+
+     	Header.defaultProps = {
+     	  lable: "Apple symbol"
+     	}
+     	ReactDOM.render(
+          <Header image={info.image}/>,document.getElementById("app")
+     	);
+     </script>
+
+</body>
+</html> 
